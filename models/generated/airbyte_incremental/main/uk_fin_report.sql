@@ -27,7 +27,7 @@ select date_time,
 
 
 from (
-         select CONVERT_TZ(TIMESTAMP(DATE_FORMAT(`posted-date`, '%Y-%m-%d %H:%i:%s.%f')), '+00:00', '+9:00')   as date_time,
+         select CONVERT_TZ(TIMESTAMP(DATE_FORMAT(`posted-date`, '%Y-%m-%d %H:%i:%s.%f')), '+00:00', '+00:00')   as date_time,
                 `settlement-id`                                                               as settlement_id,
                 `transaction-type`                                                            as type,
                 `order-id`                                                                    as order_id,
@@ -67,7 +67,7 @@ from (
          where `transaction-type` not in ('Current Reserve Amount', 'Previous Reserve Amount Balance')
          and `posted-date`!=''
 
-         group by CONVERT_TZ(TIMESTAMP(DATE_FORMAT(`posted-date`, '%Y-%m-%d %H:%i:%s.%f')), '+00:00', '+9:00'),
+         group by CONVERT_TZ(TIMESTAMP(DATE_FORMAT(`posted-date`, '%Y-%m-%d %H:%i:%s.%f')), '+00:00', '+00:00'),
                   `settlement-id`,
                   `transaction-type`,
                   `order-id`,
