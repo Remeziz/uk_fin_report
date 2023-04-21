@@ -28,7 +28,7 @@ select  month,
 
 
 from (
-         select  DATE_FORMAT(CONVERT_TZ(`posted-date`, '+00:00', '+9:00') , '%Y-%m-01')       as month,
+         select  DATE_FORMAT(CONVERT_TZ(`posted-date`, '+00:00', '+0:00') , '%Y-%m-01')       as month,
                  CONVERT_TZ(TIMESTAMP(DATE_FORMAT(`posted-date`, '%Y-%m-%d %H:%i:%s.%f')), '+00:00', '+0:00')   as date_time,
                 `settlement-id`                                                               as settlement_id,
                 `transaction-type`                                                            as type,
